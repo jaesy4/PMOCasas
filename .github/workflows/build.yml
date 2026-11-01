@@ -1,0 +1,48 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Rust build
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - name: Build portable exe
+        working-directory: src-tauri
+        run: cargo build --release
+
+      - name: Package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path dist | Out-Null
+          Copy-Item src-tauri/target/release/punchlist-app.exe dist/PunchlistManager.exe
+          Copy-Item "docs/HOW-TO-USE.txt" "dist/HOW-TO-USE.txt"
+          Compress-Archive -Path dist/* -DestinationPath PunchlistManager-windows.zip -Force
+
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: PunchlistManager-windows
+          path: dist/
+
+      - name: Publish release (only for version tags like v1.0.0)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: PunchlistManager-windows.zip
