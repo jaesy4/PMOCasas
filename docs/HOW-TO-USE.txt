@@ -1,0 +1,38 @@
+PUNCHLIST MANAGER - HOW TO USE
+==============================
+
+INSTALL
+- No installation needed. Put PunchlistManager.exe in any folder (or a USB drive)
+  and double-click it.
+- The first time, Windows may show "Windows protected your PC".
+  Click "More info" -> "Run anyway". (This happens with new apps that are not code-signed.)
+- Requires Windows 10 or 11 (uses the built-in Microsoft Edge WebView2).
+
+WHERE YOUR DATA IS
+- A folder named "PunchlistData" is created next to the .exe.
+  It holds punchlist.db (all your records) and a "backups" folder.
+- To move to another PC: copy the .exe AND the PunchlistData folder together.
+- Settings -> "Back up now" saves a dated copy into PunchlistData\backups.
+  To restore a backup: close the app, replace punchlist.db with the backup file
+  (rename it to punchlist.db), then open the app.
+
+QUICK START
+1. Settings: enter your company name (appears on printouts).
+2. Homeowners: + Add Homeowner.
+3. Schedules: + Add Schedule (Punchlist Inspection, Re-inspection, Acceptance...).
+   - You'll be warned about time conflicts, and when an Acceptance date is set
+     while the homeowner still has open items (you can still save).
+   - "+ Google Calendar" opens Google Calendar in your browser with the event filled in.
+     Click Save there, then click "Yes, mark as added" in the app.
+   - If you change the date/time later, the app reminds you to delete the old
+     Google event and add the new one.
+4. Punchlist: + Record Punchlist. Type the items (one per row). Tick
+   "Also create a repair for each item" and set the target date so each item is tracked.
+5. Repairs: rows turn RED with "OVERDUE" when past the target date and not done.
+   Click "Mark done" when finished - the punchlist item becomes "Fixed".
+
+PRINT / PDF / EXCEL
+- Print & Export page: Punchlist Form, Blank Punchlist Form, Repair Status Report,
+  Acceptance Summary, Schedule List.
+- In the print window choose your printer, or "Save as PDF" / "Microsoft Print to PDF".
+- Export to Excel saves a .xlsx file.

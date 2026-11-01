@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Punchlist Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="brand">
+        <div class="logo">PL</div>
+        <div>
+          <div class="brand-name">Punchlist Manager</div>
+          <div class="brand-sub" id="brand-company"></div>
+        </div>
+      </div>
+      <nav id="nav">
+        <button data-act="nav" data-view="dashboard">Dashboard</button>
+        <button data-act="nav" data-view="homeowners">Homeowners</button>
+        <button data-act="nav" data-view="schedules">Schedules</button>
+        <button data-act="nav" data-view="punchlist">Punchlist</button>
+        <button data-act="nav" data-view="repairs">Repairs <span id="nav-overdue" class="nav-badge hidden"></span></button>
+        <button data-act="nav" data-view="reports">Print &amp; Export</button>
+        <button data-act="nav" data-view="settings">Settings</button>
+      </nav>
+      <div class="sidebar-foot">Works offline · data saved automatically</div>
+    </aside>
+    <main id="main"></main>
+  </div>
+  <div id="toasts"></div>
+  <div id="print-area"></div>
+  <script src="app.js"></script>
+</body>
+</html>

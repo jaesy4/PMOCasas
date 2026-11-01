@@ -1,0 +1,8 @@
+src-tauri/target/
+src-tauri/gen/
+tests/shots/
+tests/node_modules/
+tests/package*.json
+__pycache__/
+PunchlistData/
+dist/
